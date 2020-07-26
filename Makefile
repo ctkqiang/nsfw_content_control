@@ -15,6 +15,7 @@ install:
 run:
 	clear
 	echo "Building Project..."
+	clear
 	echo "Executing Script..."
 	python3 nsfw--opencv.py
 
