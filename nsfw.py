@@ -17,11 +17,15 @@ def main():
         for image_file in glob.glob(os.path.join('model/nsfw/nude/', "*.png")):
             skin_percent = get_picture_skin_ratio(Image.open(image_file)) * 100
             if skin_percent > 30:
-                print('PORN {0} has {1:.0f}% skin'.format(
+                logcat('true,', 'porn {0} 有 {1:.0f}% skin'.format(
                     image_file, skin_percent))
             else:
-                print('CLEAN {0} has {1:.0f}% skin'.format(
+                logcat('false,', 'CLEAN {0} 有 {1:.0f}% skin'.format(
                     image_file, skin_percent))
+
+
+def logcat(x, y):
+    return print(x, y)
 
 
 if __name__ == '__main__':
