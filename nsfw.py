@@ -14,13 +14,13 @@ def get_picture_skin_ratio(im):
 
 def main():
     for image_dir in ('porn', 'clean'):
-        for image_file in glob.glob(os.path.join('model/nsfw/nude/', "*.png")):
+        for image_file in glob.glob(os.path.join('assets/nsfw/nude/', "*.png")):
             skin_percent = get_picture_skin_ratio(Image.open(image_file)) * 100
             if skin_percent > 30:
-                logcat('true,', 'porn {0} 有 {1:.0f}% skin'.format(
+                logcat('?nude::true, ', 'porn {0} exposed {1:.0f}% skin'.format(
                     image_file, skin_percent))
             else:
-                logcat('false,', 'CLEAN {0} 有 {1:.0f}% skin'.format(
+                logcat('?nude::false,', 'CLEAN {0} exposed {1:.0f}% skin'.format(
                     image_file, skin_percent))
 
 
